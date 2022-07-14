@@ -7536,17 +7536,18 @@ async function run() {
   try {
     const { owner, repo } = context.repo;
     const require = core.getInput('require');
-    const username = core.getInput('username') || context.actor;
+    const environment = core.getInput('environment');
+    const username = context.actor;
 
     if (!username || username.trim() === '') {
       core.setFailed('[Action Query] Invalid username!');
     }
 
-    if (require !== username) {
-      core.setFailed(`[Action Result] You ${username} have no permission!`);
+    if (environment.indexOf('staging') >=0 || environment.indexOf('prod') >=0) {
+      if (require.indexOf(username) < 0) {
+        core.setFailed(`[Action Result] You ${username} have no permission!`);
+      }
     }
-
-    core.info(THANKS);
   } catch (error) {
     core.setFailed(error.message);
   }
