@@ -18,10 +18,8 @@ inputs:
   require:
     description: Test whether the user meets the required permission
     required: false
-  check-bot:
-    description: Check whether the user is a bot
-  check-contributor:
-    description: Check whether the user is contributor
+  environment:
+    description: the required environment
 
 outputs:
   user-permission:
