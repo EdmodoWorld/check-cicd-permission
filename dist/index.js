@@ -7543,7 +7543,7 @@ async function run() {
     }
 
     if (require !== username) {
-      core.setFailed('[Action Query] You have no permission!');
+      core.setFailed(`[Action Result] You ${username} have no permission!`);
     }
 
     core.info(THANKS);
