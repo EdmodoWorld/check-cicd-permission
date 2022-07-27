@@ -7543,7 +7543,7 @@ async function run() {
       core.setFailed('[Action Query] Invalid username!');
     }
 
-    if (environment.indexOf('staging') >=0 || environment.indexOf('prod') >=0) {
+    if (environment.indexOf('prod') >=0) {
       if (require.indexOf(username) < 0) {
         core.setFailed(`[Action Result] You ${username} have no permission!`);
       }
