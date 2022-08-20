@@ -7545,7 +7545,7 @@ async function run() {
 
     if (environment.indexOf('prod') >=0) {
       if (require.indexOf(username) < 0) {
-        core.setFailed(`[Action Result] You ${username} have no permission!`);
+        // core.setFailed(`[Action Result] You ${username} have no permission!`);
       }
     }
   } catch (error) {
